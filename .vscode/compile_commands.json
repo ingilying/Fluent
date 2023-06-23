@@ -1,0 +1,16 @@
+[
+{
+  "directory": "/home/ingil/projects/fluent",
+  "arguments": ["clang++", "-c", "-Qunused-arguments", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++17", "-I", "/home/ingil/.xmake/packages/e/easyloggingpp/v9.97.0/c24ca96e5c3049cd86d89b6932cf721a/include", "-DNDEBUG", "-o", "build/.objs/fluent/linux/x86_64/release/src/main.cpp.o", "src/main.cpp"],
+  "file": "src/main.cpp"
+},
+{
+  "directory": "/home/ingil/projects/fluent",
+  "arguments": ["clang++", "-c", "-Qunused-arguments", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++17", "-I", "/home/ingil/.xmake/packages/e/easyloggingpp/v9.97.0/c24ca96e5c3049cd86d89b6932cf721a/include", "-DNDEBUG", "-o", "build/.objs/fluent/linux/x86_64/release/src/lexer/Token.cpp.o", "src/lexer/Token.cpp"],
+  "file": "src/lexer/Token.cpp"
+},
+{
+  "directory": "/home/ingil/projects/fluent",
+  "arguments": ["clang++", "-c", "-Qunused-arguments", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++17", "-I", "/home/ingil/.xmake/packages/e/easyloggingpp/v9.97.0/c24ca96e5c3049cd86d89b6932cf721a/include", "-DNDEBUG", "-o", "build/.objs/fluent/linux/x86_64/release/src/lexer/Lexer.cpp.o", "src/lexer/Lexer.cpp"],
+  "file": "src/lexer/Lexer.cpp"
+}]
