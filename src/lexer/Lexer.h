@@ -9,9 +9,13 @@
 namespace fluent {
 
 // 终止符号
-const char symbols_end[] = {'+', '-', '*', '/', '.', '-',
-                            ',', '>', '<', '=', '!', ';'};
+const char symbols_end[] = {'+', '-', '*', '/', '.', '-',  ',', '>',
+                            '<', '=', '!', ';', ' ', '\n', '\r'};
+
 const size_t sym_len = sizeof(symbols_end);
+
+// 符号
+const char symbols[] = {};
 
 /*
   类: Lexer
@@ -19,7 +23,7 @@ const size_t sym_len = sizeof(symbols_end);
   用法:
   '''
   fluent::Lexer lexer("source.fl");
-  if(lexer.Start()){ 
+  if(lexer.Start()){
     auto tokens = lexer.GetTokens();
     for(auto i : tokens) {
       std::cout<< i.content << std::endl;
@@ -37,6 +41,7 @@ private:
   std::optional<Token> Number();
   // 解析符号
   std::optional<Token> Symbol();
+
   // 判断是否是结束符
   static bool isend(const char &c);
 

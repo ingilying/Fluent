@@ -9,21 +9,22 @@ Lexer::Lexer(const std::string file_name) {
   std::ifstream fs;
   fs.open(file_name);
   if (!fs.is_open()) {
-    LOG(ERROR) << file_name << "cannot be opened!";
+    LOG(ERROR) << file_name << " cannot be opened!";
   }
   this->stream = std::stringstream();
   stream << fs.rdbuf();
   this->tokens = std::vector<Token>();
 }
 
+Lexer::~Lexer() {}
+
 void Lexer::Back(char c) { this->stream.putback(c); }
 
 std::optional<char> Lexer::Read() {
-  char c;
   if (this->stream.eof()) {
     return std::nullopt;
   }
-  this->stream >> c;
+  char c = this->stream.get();
   return {c};
 }
 
@@ -46,11 +47,12 @@ bool Lexer::Start() {
         continue;
       } else if (c == '\n') {
         this->lines += 1;
+      }else if(c == -1) {
+        break;
       }
-    } else {
-      LOG(INFO) << "File Finish";
     }
   }
+  return true;
 }
 
 std::optional<Token> Lexer::Number() {
@@ -65,7 +67,10 @@ std::optional<Token> Lexer::Number() {
       s.push_back(c);
     } else if (c == '.') {
       s.push_back(c);
-    } else if (isend(c)) {
+    } else if (isend(c) || c == -1 ) {
+      if (c == '\n')
+        lines += 1;
+      this->Back(c);
       break;
     } else {
       LOG(ERROR) << current.file_name << ": Line " << current.line;
@@ -84,6 +89,4 @@ bool Lexer::isend(const char &c) {
   return false;
 }
 
-std::vector<Token> Lexer::GetTokens() {
-  return this->tokens;
-}
+std::vector<Token> Lexer::GetTokens() { return this->tokens; }

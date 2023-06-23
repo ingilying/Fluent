@@ -1,13 +1,13 @@
 add_rules("mode.debug", "mode.release")
 
-add_requires("easyloggingpp")
+add_requires("easyloggingpp","magic_enum")
 
 target("fluent")
     set_kind("binary")
     set_languages("c99","c++17")
     add_files("src/*.cpp")
     add_files("src/lexer/*.cpp")
-    add_packages("easyloggingpp")
+    add_packages("easyloggingpp","magic_enum")
 
 --
 -- If you want to known more usage about xmake, please see https://xmake.io
